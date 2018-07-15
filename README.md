@@ -8,4 +8,5 @@ Brute force knight's tour implementation
 brew install autoconf automake libtool
 
 ./bootstrap && ./configure && make
+./knights_tour
 ```
