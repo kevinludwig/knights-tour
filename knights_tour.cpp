@@ -152,10 +152,13 @@ typedef struct game_state {
     game_state() {
         state = A1;
         moves.push_back(A1);
+        count = 0;
+        checked_paths = 0;
     }
     u64 state;
     vector<move_t> moves;
     u64 count;
+    u64 checked_paths;
 } game_state_t;
 
 int bit_num(move_t move) {
@@ -173,7 +176,8 @@ void generate_moves(const game_state_t& gs, vector<move_t>& candidates) {
 
     for (int i = 0; i < 8; i++) {
         move_t m = knight_attacks[n][i];
-        if (m && (m & gs.state) == 0) {
+        if (!m) break;
+        if ((m & gs.state) == 0) {
             candidates.push_back(m);
         }
     }
@@ -206,8 +210,10 @@ bool dfs(game_state_t& gs) {
     for (vector<move_t>::const_iterator it = candidates.begin(); it != candidates.end(); it++) {
         make_move(gs, *it);
         if (dfs(gs)) return true;
-        
-        return true;
+        gs.checked_paths++;
+        if (gs.checked_paths % 1000000 == 0) {
+            cout << gs.checked_paths << endl;
+        }
         undo_move(gs, *it);
     }
     return false;
