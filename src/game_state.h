@@ -1,17 +1,25 @@
 #ifndef __GAME_STATE_H__
 #define __GAME_STATE_H__
 #include <vector>
+#include <iostream>
 #include "squares.h"
 #include "move.h"
 
-typedef struct game_state {
-    game_state(): state(A1), count(0), checked_paths(0) {
-        moves.push_back(A1);
+class game_state {
+    public:
+        u64 state;
+        std::vector<move_t> moves;
+        u64 count;
+    public:
+    game_state(const move_t& initial): state(initial), count(0) {
+        moves.push_back(initial);
     }
-    u64 state;
-    std::vector<move_t> moves;
-    u64 count;
-    u64 checked_paths;
-} game_state_t;
+    bool is_solved() const;
+    void generate_moves(std::vector<move_t>&) const;
+    void make_move(const move_t&);
+    void undo_move(const move_t&);
+
+    friend std::ostream& operator<<(std::ostream& os, const game_state& gs);
+}; 
 
 #endif 
