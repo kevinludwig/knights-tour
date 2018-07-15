@@ -1,6 +1,6 @@
 ### Overview
 
-Brute force knight's tour implementation
+Knight's tour implementation with Warnsdorff's move ordering heuristic.
 
 ### Setup and build
 
