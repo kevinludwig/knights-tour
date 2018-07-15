@@ -14,7 +14,7 @@ bool dfs(game_state& gs) {
    
     std::vector<move_t> candidates;
     gs.generate_moves(candidates);
-    for (std::vector<move_t>::const_iterator it = candidates.begin(); it != candidates.end(); it++) {
+    for (auto it = candidates.begin(); it != candidates.end(); it++) {
         gs.make_move(*it);
         if (dfs(gs)) return true; 
         

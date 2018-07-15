@@ -7,5 +7,5 @@ configure
 .deps/
 autom4te.cache/
 target/
-*.o
+src/*.o
 knights_tour
