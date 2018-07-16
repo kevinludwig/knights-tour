@@ -12,5 +12,5 @@ target/
 *.log
 *.trs
 *.dSYM
-tests/test_util
+testrunner
 knights_tour

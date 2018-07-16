@@ -15,7 +15,7 @@ class game_state {
         moves.push_back(initial);
     }
     bool is_solved() const;
-    void generate_moves(std::vector<move_t>&) const;
+    std::vector<move_t> generate_moves() const;
     void make_move(const move_t&);
     void undo_move(const move_t&);
 
