@@ -5,12 +5,12 @@ config.log
 config.status
 configure
 .deps/
+.dirstamp
 autom4te.cache/
 target/
-src/*.o
-tests/*.o
-tests/*.dSYM
-tests/*.trs
-tests/*.log
+*.o
+*.log
+*.trs
+*.dSYM
 tests/test_util
 knights_tour
