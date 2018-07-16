@@ -44,6 +44,7 @@ std::ostream& print_moves(std::ostream& os, const std::vector<move_t>& moves) {
 }
 
 std::ostream& operator<<(std::ostream& os, const game_state& gs) {
-    return os << "count: " << gs.count << std::endl
-        << "solution: " << print_moves(os, gs.moves); 
+    os << "count: " << gs.count << std::endl
+        << "solution: ";
+    return print_moves(os, gs.moves); 
 }
