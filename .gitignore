@@ -10,4 +10,7 @@ target/
 src/*.o
 tests/*.o
 tests/*.dSYM
+tests/*.trs
+tests/*.log
+tests/test_util
 knights_tour
